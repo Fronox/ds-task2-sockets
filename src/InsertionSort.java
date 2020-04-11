@@ -1,11 +1,16 @@
 import java.io.Serializable;
 
+// insertion sort class
 public class InsertionSort implements Serializable {
+    // Sorted array variable
     int[] array;
+
+    // Constructor
     InsertionSort(int[] array){
         this.array = array;
     }
 
+    // Sort method
     void sort() {
         int n = array.length;
         for (int i = 0; i < n - 1; i++) {
@@ -19,6 +24,7 @@ public class InsertionSort implements Serializable {
         }
     }
 
+    // Method for current array state obtaining
     int[] getArray() {
         return this.array;
     }
