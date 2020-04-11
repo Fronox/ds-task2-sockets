@@ -21,11 +21,15 @@
     - implements current time obtaining in human-readable format
 
 # Run instructions 
-* Run server: 
+* Go to `out/artifacts` directory
+
+    `cd out/artifacts`
+
+* Run server
 
     `java -jar Server.jar`
     
-* Run client:
+* Run client
 
     `java -jar Client.jar`
     
