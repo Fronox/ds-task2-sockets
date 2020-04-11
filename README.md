@@ -35,4 +35,4 @@
     
 * Follow output instructions
 
-#####NB: Server must start before a client!
+####NB: Server must start before a client!
