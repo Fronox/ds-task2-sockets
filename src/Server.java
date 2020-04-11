@@ -26,16 +26,20 @@ public class Server {
 
         ObjectInputStream dataIn = new ObjectInputStream(socket.getInputStream());
         Object receivedObject = dataIn.readObject();
+
         Class cls = Class.forName(receivedObject.getClass().getName());
         Method getArray = cls.getDeclaredMethod("getArray");
         int[] array = (int[]) getArray.invoke(receivedObject);
+
         System.out.println(String.format("[%s] Received array from client: %s", Configuration.getCurrentTime(), Arrays.toString(array)));
         Method sort = cls.getDeclaredMethod("sort");
         sort.invoke(receivedObject);
         int[] sortedArray = (int[]) getArray.invoke(receivedObject);
+
         System.out.println(String.format("[%s] Sorted array: %s", Configuration.getCurrentTime(), Arrays.toString(sortedArray)));
         System.out.println(String.format("[%s] Press enter key to send data back", Configuration.getCurrentTime()));
         scanner.nextLine();
+
         System.out.println(String.format("[%s] Sent data back to client", Configuration.getCurrentTime()));
         ObjectOutputStream dataOut = new ObjectOutputStream(socket.getOutputStream());
         dataOut.writeObject(receivedObject);
