@@ -11,6 +11,8 @@ import java.util.Scanner;
 
 public class Server {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Server start method
     private static void serverRun(String host, int port) throws IOException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         ServerSocket server = new ServerSocket();
@@ -30,6 +32,11 @@ public class Server {
         System.out.println(String.format("[%s] Received array from client: %s", Configuration.getCurrentTime(), Arrays.toString(array)));
         Method sort = cls.getDeclaredMethod("sort");
         sort.invoke(receivedObject);
+        int[] sortedArray = (int[]) getArray.invoke(receivedObject);
+        System.out.println(String.format("[%s] Sorted array: %s", Configuration.getCurrentTime(), Arrays.toString(sortedArray)));
+        System.out.println(String.format("[%s] Press enter key to send data back", Configuration.getCurrentTime()));
+        scanner.nextLine();
+        System.out.println(String.format("[%s] Sent back data to client", Configuration.getCurrentTime()));
         ObjectOutputStream dataOut = new ObjectOutputStream(socket.getOutputStream());
         dataOut.writeObject(receivedObject);
 
@@ -41,8 +48,7 @@ public class Server {
 
     // Main server method
     public static void main(String[] args) {
-        System.out.println("Press any key to run server...");
-        Scanner scanner = new Scanner(System.in);
+        System.out.println("Press enter key to run server...");
         scanner.nextLine();
         try {
             String host = Configuration.HOST;
