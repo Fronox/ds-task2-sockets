@@ -20,3 +20,15 @@
     - stores program constants (i.e. hostname and port for socket communication)
     - implements current time obtaining in human-readable format
 
+# Run instructions 
+* Run server: 
+
+    `java -jar Server.jar`
+    
+* Run client:
+
+    `java -jar Client.jar`
+    
+* Follow output instructions
+
+#####NB: Server must start before a client!
