@@ -20,7 +20,7 @@ public class Server {
         System.out.println(String.format("[%s] Server is waiting for clients", Configuration.getCurrentTime()));
 
         Socket socket = server.accept();
-        System.out.println(String.format("[%s] Server connected to %s", Configuration.getCurrentTime(), socket.getLocalSocketAddress()));
+        System.out.println(String.format("[%s] Just connected to %s", Configuration.getCurrentTime(), socket.getLocalSocketAddress()));
 
         ObjectInputStream dataIn = new ObjectInputStream(socket.getInputStream());
         Object receivedObject = dataIn.readObject();
