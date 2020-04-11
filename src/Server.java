@@ -36,7 +36,7 @@ public class Server {
         System.out.println(String.format("[%s] Sorted array: %s", Configuration.getCurrentTime(), Arrays.toString(sortedArray)));
         System.out.println(String.format("[%s] Press enter key to send data back", Configuration.getCurrentTime()));
         scanner.nextLine();
-        System.out.println(String.format("[%s] Sent back data to client", Configuration.getCurrentTime()));
+        System.out.println(String.format("[%s] Sent data back to client", Configuration.getCurrentTime()));
         ObjectOutputStream dataOut = new ObjectOutputStream(socket.getOutputStream());
         dataOut.writeObject(receivedObject);
 
